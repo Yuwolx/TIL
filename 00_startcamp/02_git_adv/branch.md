@@ -6,7 +6,7 @@
 
 ## Code
 - `git branch -c victor/login`
-    - git branch -c(create) [name]/[purpose] = [Branch name]
+    - `git branch -c(create) [name]/[purpose]`: [Branch name]
 
 - `git switch [branch name]`
     - change working space
@@ -31,9 +31,9 @@
         - request merge to remote hub by push
 
 - **last routine**
-    - synchlonize master version on local circumstance
+    - synchlonize master version on local circumstance from remote repository
 
 - Orginize
     - no one revise master branch
     - master branch initial setting by common status
-    - Create my branch
+    - Create my branch for dev(development) branch
