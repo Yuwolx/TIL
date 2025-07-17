@@ -20,3 +20,15 @@
 
 - `git branch -d [branch name]`
     - Those branch delected
+
+## If conflit in remote repository (workflow)
+- synchlonize master version by pull from remote repository
+    - merge, master to my branch 
+        - resolve conflict
+**or**
+- pull to my branch from remote master last version
+    - fix confilct
+        - request merge to remote hub by push
+
+- **last routine**
+    - synchlonize master version on local circumstance
