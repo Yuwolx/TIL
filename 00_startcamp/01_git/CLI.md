@@ -1,8 +1,8 @@
 # Command Line Interface
-- 명령어를 써서 컴퓨터와 상호작용 한다
+- Interaction with computer by commands
 - GUI
-    - 그래픽을 통해 상호작용 하는 것
-        - 폴더 열기 등
+    - Intercation by graphic
+        - open folder etc 
 
 - Unix 운영체제에서 이 형태로 작동이 된다.
     - 써야 할 일이 있을 것이다.
