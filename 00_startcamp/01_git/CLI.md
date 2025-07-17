@@ -82,6 +82,14 @@
 - `git push -u origin master`
     - Push to remote repository current git
 
+- `git diff`
+    - Show differenct between current file and last commit
+    - **`git difftool` is better
+        - Show display more efficiently
+
+- `git diff [commit id]`
+    - you can find commit id by use `git log --online --all`
+    - Can compare current commit and id commit
 
 
 ### 문법 및 활용
@@ -91,4 +99,3 @@
 - 상대 경로
     - 상대적 위치로 작성
     - 대부분 상대경로로 얘기 함
-    ddd
