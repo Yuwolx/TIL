@@ -88,8 +88,12 @@
         - Show display more efficiently
 
 - `git diff [commit id]`
-    - you can find commit id by use `git log --online --all`
+    - you can find commit id by use `git log --oneline --all`
     - Can compare current commit and id commit
+
+### Push error
+- If you have trouble on push process
+    - At first, pull from remote repository
 
 
 ### 문법 및 활용
