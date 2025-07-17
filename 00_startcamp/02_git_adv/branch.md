@@ -32,3 +32,8 @@
 
 - **last routine**
     - synchlonize master version on local circumstance
+
+- Orginize
+    - no one revise master branch
+    - master branch initial setting by common status
+    - Create my branch
