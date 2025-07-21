@@ -10,10 +10,11 @@ print(num)  # 1
 
 # LEGB rule
 # Local
-# En-Cosed
+# En-Closed
 # global
 # Built-in
 
+global x #???
 def outer_function():
     x = 0
 
@@ -23,4 +24,6 @@ def outer_function():
 
     inner_function()
     print(x)
+
 x = 10
+outer_function()
