@@ -7,3 +7,18 @@ def increment():
 print(num)  # 0
 increment()
 print(num)  # 1
+
+# LEGB rule
+# Local
+# En-Cosed
+# global
+# Built-in
+
+def outer_function():
+    x = 0
+
+    def inner_function():
+        x = 10
+
+    inner_function()
+x = 10
