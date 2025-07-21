@@ -44,4 +44,8 @@ def func(pos1, pos2, default_arg='default', *args, **kwargs):
     print('kwargs:', kwargs)
 func(1, 2, 3, 4, 5, 6, key1='value1', key2='value2')
 
+# If there is default argument, it must be placed after positional arguments
+# 사용자가 파라미터에 값을 지정하지 않을 경우가 많다고 판단한 함수임
+# 값을 지정한다면 위치 인자로 만들어버리거나, # 키워드 인자로 만들어버리면 된다.
+def func_with_default(pos1, pos2, default_arg='default'):
 
