@@ -19,6 +19,8 @@ def outer_function():
 
     def inner_function():
         x = 10
+        print(x)
 
     inner_function()
+    print(x)
 x = 10
