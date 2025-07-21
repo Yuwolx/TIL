@@ -64,3 +64,27 @@ def [function_name](varable_1,variable_2): #variables is parameter(매개변수)
   - If user do not input argument, then python return dafault argument value
 
 ## Keyword Argument
+### Arbitrary Argument lists
+'''
+def calculate_sum(*argument):
+  codes
+'''
+- When use do not setting arguments size
+  - couples argument cognitive tuple
+
+### Arbitrart Keyword Argument Lists
+def print_info(**kwargs):
+- couples argument address dictionary
+
+## Packing & Unpacking
+- Unpacking *[list_name] 
+- Can assigned each value in list to arguments
+
+## Built in function
+len max min sum avg
+- use on for or while statement
+
+### Lambda expression
+
+## Styple Guide
+Read in forder
