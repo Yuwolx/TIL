@@ -19,6 +19,8 @@
  - Hyper Text Markup Language
     - Hypertext: Connext another page
     - Markup Language: Write structure with tag
+    - Write lower word
+    - most cast attribute values warp by ""
 
 ### Structure
 <!DOCTYPE HTML> # Indicate this document is write by html
@@ -49,4 +51,45 @@
     - It seems like  dictionary
     - 'h1' is selector. Important thing is to designat
 
-**Use External style sheets**
+**How to use External style sheets**
+- Create new file and write css core in it
+
+#### CSS Selectors
+- Basic selectors
+  - * #_all
+  - tag # element
+  - . # class
+  - '#' # tag id
+  - attr # attribute
+
+- Combinators
+  - " " #space Descendant Combinators
+  - "<" # child combinators
+
+- Class selectors
+  - "." #dot, all element in that class # ex: .animal
+  **See 04-css-selectors**
+
+  ## Specificity (명시도)
+  - Cascade : stair style
+    - Finally admit code is last code if have same speicficity
+
+  - Specificity hieracy
+    1. **!important**
+      - extremely
+    2. Inline style
+      - write in inner directly
+      - **Breaks specificity flow — generally discouraged**
+    3. **Selectors**
+      **id > class > elements**
+      - Later rules in the source code override earlier ones with equal specificity
+       - It is mean cascade
+
+  ## CSS Box Model
+  - Every element have box shape area
+  - Outer display type
+    - Block
+    - inline
+    - It is normal flow
+
+  - Inner display type
