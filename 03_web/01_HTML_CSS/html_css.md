@@ -37,3 +37,16 @@
 - There is vacancy between name of attribute and attribute
 - There is vancancy between attributes
 - 
+### Text structure
+- Supplt text structure and meaning
+  - Purpose of <h1> tag is indicate this text is top hieracy text
+
+## CSS
+**Cascading Style Sheet**
+- Language of consist web design
+- example
+  - h1 {color:red; font-sizeL 30px;}
+    - It seems like  dictionary
+    - 'h1' is selector. Important thing is to designat
+
+**Use External style sheets**
