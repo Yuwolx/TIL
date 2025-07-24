@@ -45,6 +45,8 @@
 - Supplt text structure and meaning
   - Purpose of <h1> tag is indicate this text is top hieracy text
 
+**rem: font-size that related parent font size. So if use 1.5 rem, then font size will be parent font size * 1.5**
+
 ## CSS
 **Cascading Style Sheet**
 - Language of consist web design
