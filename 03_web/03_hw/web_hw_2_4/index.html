@@ -7,10 +7,13 @@
   <style>
     div p {
       color: blue;
+      margin-left: 20px;
     }
     div > p {
       color: crimson;
+      margin-left: 0px;
     }
+
     
     /* 공백은 자손 결합자이다. div안에 모든 p에 적용한다
     > 는 자식 결합자이다. div 바로 아래의 p에게만 적용한다. */
@@ -19,7 +22,14 @@
   </style>
 </head>
 <body>
-  
+  <div>
+    <p>자식</p>
+      <a>
+        <p>손자</p>
+      </a>    
+    <p>자식</p>
+  </div>
+          
 </body>
 </html>
 
