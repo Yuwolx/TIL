@@ -22,6 +22,8 @@
     - Write lower word
     - most cast attribute values warp by ""
 
+- **HTML deal with image to text**
+
 ### Structure
 <!DOCTYPE HTML> # Indicate this document is write by html
 <html></html>   # Include contents of whole page

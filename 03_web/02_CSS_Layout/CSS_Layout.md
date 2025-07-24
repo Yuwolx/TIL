@@ -100,3 +100,5 @@ justify-content: center;
 
 align-items: flex-start;
 - align by cross direction
+
+**flex impact to direct child**
