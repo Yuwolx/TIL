@@ -13,3 +13,18 @@
 - jsonplaceholder: json data api
  - We can use those web to get requests
  - Can get data written by javascript
+
+
+ ### CSV
+ **comma-seperated values**
+ 1. simple
+ 2. compatibility(호환성)
+ 3. Based on text
+
+ - open(filename, mode)
+  - use when open file
+  -print(filename.read())
+
+- with expression as variable #alias: result of expression assigned to variable
+    codes
+  when with end, resource end
