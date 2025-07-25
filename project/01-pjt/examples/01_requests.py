@@ -1,5 +1,6 @@
 # drive installed library
 import requests
+from pprint import pprint
 
 #jsonplaceholder: json data supply api
 #requests는 get 요청으로 응답받은 데이터를 담은 객체에게
@@ -37,5 +38,5 @@ for item in response:
             temp_item['user'] = user_info
 
     completed_todos.append(temp_item)
-print(completed_todos)
+pprint(completed_todos)
 
