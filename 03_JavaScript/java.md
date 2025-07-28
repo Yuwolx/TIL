@@ -1,5 +1,5 @@
-# JAVA SCRIPT
-## JAVA & DOM
+# JAVA SCRIPT & DOM
+## JAVA
 - Programing language that make about ECMAScript
 - Based on ECMAScript receipt and run in web or Node.js system
 - ECMAScript is standard of JavaScript
@@ -63,3 +63,7 @@ condition ? expression1 : expression2
 - for of: repeat iteratable
 
 ### Event
+
+## DOM
+- JavaScipt in web browser
+**The Document Object Model**
