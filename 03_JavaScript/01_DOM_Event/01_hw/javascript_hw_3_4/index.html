@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>Document</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <ul class="switcher">
+    <li id="grayButton"></li>
+    <li id="whiteButton"></li>
+    <li id="navyButton"></li>
+  </ul>
+  
+  <h1>Theme Switcher</h1>
+  
+  <p>테마 변경 기능 구현하기</p>
+
+  <script>
+    /* 
+			- 각 li 태그가 클릭 되면 body의 background color 와 color 속성이 변경되어야 한다.
+				- css와 HTML 마크업을 직접 수정하지 않는다.
+      1. li#grayButton 클릭시 background-color는 gray, color는 white로 변경
+      2. li#whiteButton 클릭시 background-color는 white, color는 black으로 변경
+      3. li#navyButton 클릭시 background-color는 navy, color는 white로 변경
+    */    
+
+  //  const grayButton = document.querySelector('#grayButton')
+  //  const whiteButton = document.querySelector('#whiteButton')
+  //  const navyButton = document.querySelector('#navyButton')
+
+  //  grayButton.addEventListener('click', function() {
+  //   document.body.style.backgroundColor = 'gray'
+  //   document.body.style.color = 'white'
+  //  })
+
+  //  whiteButton.addEventListener('click', function() {
+  //   document.body.style.backgroundColor = 'white'
+  //   document.body.style.color = 'black'
+  //  })
+   
+  //  navyButton.addEventListener('click', function() {
+  //   document.body.style.backgroundColor = 'navy'
+  //   document.body.style.color = 'white'
+  //  })
+
+  const bodyTag = document.querySelector('body')
+
+  const ulTag = document.querySelector('.switcher')
+  ulTag.addEventListener('click', function(event) {
+    // ultag 자식들인 litag에서 이벤트가 벌어지면 부모요소에게 버블링된다. 자식에게 발생해도 부모가 알 수 있다
+    // 어떤 liTag인지 알아야 한다. 이때 target과 currentTarget의 차이가 나온다.
+
+console.log(event.target);           // 클릭된 버튼 그 자체
+console.log(event.target.id);        // 그 버튼의 id
+
+const bodyTag = document.body;       // body 태그 선택
+
+if (event.target.id === 'grayButton') {
+  bodyTag.className = 'gray';
+} else if (event.target.id === 'whiteButton') {
+  bodyTag.className = 'white';
+} else if (event.target.id === 'navyButton') {
+  bodyTag.className = 'navy';
+}
+})
+
+  // grayButton.addEventListener('click', function(event) {
+  //   bodyTag.className = 'gray'
+  // })
+  </script>
+</body>
+</html>
