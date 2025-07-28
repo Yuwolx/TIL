@@ -1,104 +1,168 @@
+
 # CSS Layout
+
+---
 
 ## CSS Box Model
 
-**Components**
+### Components
 
-- **contents**  
-  - Can control width using the `width` property.
+* **Content**
 
-- **padding**  
-  - Space between border and contents.
+  * The actual content of the element
+  * You can control the width using the `width` property.
 
-- **border**  
-  - Shorthand attribute:
-    - `border-width`, `border-style`, `border-color`
-    - Can be set in one line.
-    - Order is not important.
+* **Padding**
 
-- **margin**: space outside the box  
-  - If you use `auto` in margin size, it keeps the element centered (when used consistently).
-  - **Shorthand:**
-    - 4 values → top, right, bottom, left (clockwise)
-    - 3 values → top, right & left, bottom
-    - 2 values → top & bottom, right & left
+  * The space between the content and the border.
 
-**box-sizing: border-box**
-- Use with `* { box-sizing: border-box; }`
-  - Sets all elements' size based on border-box model.
+* **Border**
 
-### Outer display type
+  * A line around the padding
+  * Can be set with shorthand:
 
-- Always creates a new row.
-- Can use `width` and `height` properties.
-- Pushes other boxes using `padding`, `margin`, and `border`.
-- If `width` is not used, it takes full page width.
+    ```css
+    border: 1px solid black;
+    ```
 
-#### Inline-block
+    * Combines `border-width`, `border-style`, and `border-color`
+    * Order doesn't matter
 
-- Does not break to a new row: inserted within content on the same line.
-- Inherits width from parent.
-- Can set various properties.
+* **Margin**
 
-#### none
+  * The space outside the element
+  * If you set `margin: auto`, the element will be centered horizontally (if width is set)
 
-- Not shown on the page and does not take up any space.
-  - Used for hiding elements.
-- Different from `visibility: hidden`.
+  **Shorthand Rules:**
 
-## CSS Position
+  * 4 values: `top right bottom left` (clockwise)
+  * 3 values: `top right/left bottom`
+  * 2 values: `top/bottom right/left`
 
-- Controls webpage layout by adjusting the location of components.
-- Removes elements from normal flow.
+---
 
-**components**
-- static
+### `box-sizing: border-box`
 
-- relative
-  - move to setting from original location left-upside dot
-  - keep before location space
+```css
+* {
+  box-sizing: border-box;
+}
+```
 
-- absolute
-  - remove location space
-  - and move to setting from whole page left-upside dot
-  - If parent have relative feature
-    - absolute have criteria on parent
-    - If use just relative, than remain original location space
+* Makes `width` and `height` include `padding` and `border`
+* Prevents unexpected sizing issues
 
-- fixed
-  - fixed position even move by scoll
+---
 
-- Sticky
-  - Have own location but when page scrolled, element sticky setting position
-  - If all category passing, than sticky elements go to upside
+### Outer Display Types
 
-### Z-index
-- default is auto 
+* **Block** (default for `div`, `p`, etc.)
 
+  * Takes up full width
+  * Starts on a new line
+  * Affected by `width`, `height`, `margin`, `padding`, `border`
+  * If `width` is not set, fills the parent container width
 
+* **Inline-block**
 
-**position: relative in class**
-    .container {
-      position: relative;}
-- standard setting on container
+  * Flows with text, like `inline`
+  * But allows setting width/height like `block`
+  * Good for placing small boxes side by side
 
+* **none**
 
-## CSS Flex Box: inner displat type
-- horizon line is main axis
-  - vertical line is cross axis
+  * Completely hides the element (as if it doesn’t exist in layout)
+  * **Different from** `visibility: hidden`, which hides the element but keeps its space
 
-**components**
-- main axis start on up side
-- cross axis  start on left side
+---
 
-**flex container attribute**
+## CSS Positioning
+
+Used to control the position of elements outside the normal flow.
+
+### Types
+
+* **static** (default)
+
+  * Follows normal document flow
+
+* **relative**
+
+  * Moves element from its **original position**
+  * Still **reserves** the original space
+  * Offsets using `top`, `left`, `right`, `bottom` from original location
+
+* **absolute**
+
+  * Removed from normal flow (does **not** reserve space)
+  * Positioned from the **nearest positioned ancestor** (if any), otherwise from the `html` root
+  * Common pattern:
+
+    ```css
+    .parent { position: relative; }
+    .child { position: absolute; top: 0; left: 0; }
+    ```
+
+* **fixed**
+
+  * Always stays in the same position even when scrolling
+  * Positioned relative to the browser window
+
+* **sticky**
+
+  * Behaves like `relative` until a scroll threshold is reached, then becomes `fixed`
+  * Requires top/left/right/bottom to activate
+
+### `z-index`
+
+* Controls the stacking order
+* Higher value appears on top
+* Default is `auto`
+
+```css
+.container {
+  position: relative;  /* makes it a reference for absolute children */
+}
+```
+
+---
+
+## CSS Flexbox (inner display type)
+
+**Used to align child elements inside a container.**
+
+### Axes
+
+* **Main axis**: horizontal by default (`row`)
+* **Cross axis**: perpendicular to main axis (vertical by default)
+
+---
+
+### Flex Container Properties
+
+```css
+display: flex;
 flex-wrap: wrap;
-- keep contents in container
-
 justify-content: center;
-- align by flex direction
-
 align-items: flex-start;
-- align by cross direction
+```
 
-**flex impact to direct child**
+* `flex-wrap: wrap`
+  → allows child items to wrap onto multiple lines
+
+* `justify-content`
+  → aligns items along the **main axis**
+
+  * `center`, `space-between`, `flex-end`, etc.
+
+* `align-items`
+  → aligns items along the **cross axis**
+
+  * `flex-start`, `center`, `stretch`, etc.
+
+---
+
+### Notes
+
+* Flex properties only affect **direct children** of the flex container
+* For precise layout control, combine `flex` with `margin`, `padding`, and `gap`

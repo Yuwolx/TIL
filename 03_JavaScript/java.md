@@ -1,69 +1,199 @@
-# JAVA SCRIPT & DOM
-## JAVA
-- Programing language that make about ECMAScript
-- Based on ECMAScript receipt and run in web or Node.js system
-- ECMAScript is standard of JavaScript
+# JavaScript & DOM
 
-- TypeScript?
-  - It is strict writting mode in JavaScript
+---
 
-### Function
-#### Variable
-- Name of variable
-  - Must be start string, '$' and '_'
+## JavaScript
 
-- Declare variable keywork
-  - let
-    - Declare local variable that have block scope
-    - **Possible reassignment**
-    - Impossible redeclare 
+* A programming language based on **ECMAScript**
 
-  - const: we use more frequently
-    - Declare local variable that have block scope
-    - Impossible reassignment
-    - Impossible redeclare 
+* Runs in browsers or environments like **Node.js**
 
-**Block scope**
-  - Inside of {}
-  - Variable in outside cannot access to blockscope({})
+* **ECMAScript** is the standard for JavaScript
 
-#### Data Type
-**Primitive type**
-Number, String, Boolean, null, undefined
-- Immutable
-- Number: int and float
-- String: Can use '*','+', Templacte literals(f-string)
-- underfined: working in JavaSript inner space
-- Boolean: true, false
+* **TypeScript**
 
-**'==' is make the same type, '===' is check each value same**
-and === &&
-or === ||
-not === !
+  * A stricter version of JavaScript with static typing
+  * Useful for large-scale applications
 
-**Notice: When print type of null, print 'object'. It is error** 
+---
 
-**Reference type**
-Objects (Object, Array, Function)
-- Mutable
-  - Object variable can impact each
+### Variables
 
-- **Objects Type saved memory of object
+* **Variable Naming**
 
-#### 삼항연산자
-condition ? expression1 : expression2
-- condition, if true print value, if false print value
+  * Must start with a letter, `$`, or `_`
 
-#### loof
-- while is while
-- **for**
-  `for (let variable; condition; variable++){}
+* **Declaration Keywords**
 
-- for in: repeat about property(Key) of iterable object
-- for of: repeat iteratable
+  * `let`
 
-### Event
+    * Block-scoped
+    * Reassignable
+    * Not re-declarable in the same scope
 
-## DOM
-- JavaScipt in web browser
-**The Document Object Model**
+  * `const` *(commonly used)*
+
+    * Block-scoped
+    * Not reassignable
+    * Not re-declarable
+
+> **Block Scope**:
+> Variables declared inside `{}` cannot be accessed from outside.
+
+---
+
+### Data Types
+
+#### Primitive Types (Immutable)
+
+* `Number`, `String`, `Boolean`, `null`, `undefined`
+
+  * `Number`: no distinction between int/float
+  * `String`: supports `*`, `+`, and **template literals** `` `Hello ${name}` ``
+  * `Boolean`: `true`, `false`
+  * `undefined`: default when a variable is declared but not assigned
+  * `null`: intentionally empty → but `typeof null` returns `'object'` → **JavaScript bug**
+
+> `==` → compares after type coercion
+> `===` → compares value and type (strict equality)
+
+Logical operators:
+
+* `&&` → AND
+* `||` → OR
+* `!` → NOT
+
+---
+
+#### Reference Types (Mutable)
+
+* `Object`, `Array`, `Function`
+
+  * Stored by reference
+  * Changes affect all references to the same object
+
+---
+
+### Ternary Operator
+
+```js
+condition ? valueIfTrue : valueIfFalse
+```
+
+---
+
+### Loops
+
+* `while (condition) {}`
+
+* `for (init; condition; step) {}`
+
+* `for...in` → iterates over **keys** in an object
+
+* `for...of` → iterates over **values** of an iterable (like arrays)
+
+---
+
+## DOM (Document Object Model)
+
+* JavaScript interface for interacting with HTML
+* Represents HTML as a **tree structure**
+
+---
+
+### DOM Selection
+
+* `document.querySelector()`
+
+  * Selects **first** matching element
+
+* `document.querySelectorAll()`
+
+  * Selects **all** matching elements (returns a **NodeList**)
+
+---
+
+### DOM Manipulation
+
+#### Attributes & Content
+
+* `getAttribute()`, `setAttribute()`, `removeAttribute()`
+* `element.textContent`, `element.innerHTML`, etc.
+
+#### Class Manipulation
+
+* `element.classList.add()`
+* `element.classList.remove()`
+* `element.classList.toggle()`
+
+#### Element Control
+
+* `document.createElement()`
+* `parent.appendChild(child)`
+* `parent.removeChild(child)`
+
+---
+
+## Functions
+
+```js
+function name(param) {
+  return value;
+}
+```
+
+* If no `return`, result is `undefined`
+
+* **Function Declaration**
+
+  ```js
+  function sayHello() {}
+  ```
+
+* **Function Expression** *(recommended)*
+
+  ```js
+  const sayHello = function () {}
+  ```
+
+* **Arrow Function Expression**
+
+  ```js
+  const greet = (name) => `Hello, ${name}`;
+  ```
+
+* Parameters default to `undefined` if not provided
+
+---
+
+## Events
+
+* Any user action or browser signal (click, input, etc.)
+* Events are objects created when something happens in the DOM
+
+#### Event Handling
+
+* Use `.addEventListener(type, handler)`
+
+  * Attaches a handler function to an element
+  * Example:
+
+    ```js
+    button.addEventListener("click", () => {
+      alert("Clicked!");
+    });
+    ```
+
+> **Note**: `addEventListener` is a **method**, not a function
+
+---
+
+### Bubbling & Capturing
+
+* **Bubbling**: event propagates **upward** from the target
+  → allows parent elements to react to child events
+* **Capturing**: event propagates **downward** (less commonly used)
+
+#### `preventDefault()`
+
+* Prevents the default behavior (e.g., prevent form submission)
