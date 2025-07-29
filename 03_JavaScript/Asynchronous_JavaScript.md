@@ -165,3 +165,138 @@ const admin = users.find(user => user.role === 'admin');
 * `some`: returns `true` if **any** element passes the test
 * `every`: returns `true` if **all** elements pass the test
 
+---
+
+**JS arr cannot use negetive indexing [-1]**
+
+
+# Asynchronous JavaScript
+
+---
+
+## Synchronous vs Asynchronous
+
+* **Synchronous**:
+
+  * Code runs **in order**, line by line
+  * Each step **waits** for the previous one to finish
+
+* **Asynchronous**:
+
+  * Multiple operations can **run in parallel** (non-blocking)
+  * Execution continues while waiting for other tasks (e.g., network) to finish
+  * Common tools: `callback`, `Promise`, `async/await`
+
+> JavaScript is **single-threaded**, so it relies on browser features to handle asynchronous behavior
+
+---
+
+## How JavaScript Handles Async
+
+JavaScript in browsers is powered by:
+
+* **Call Stack**: the place where functions are executed
+* **Web APIs**: provided by the browser to handle async tasks (e.g., `setTimeout`, `fetch`, `DOM events`)
+* **Callback Queue**: where callback functions wait
+* **Event Loop**: monitors the stack and pushes callbacks when the stack is clear
+
+---
+
+## AJAX (Asynchronous JavaScript and XML)
+
+> Enables asynchronous HTTP requests without refreshing the whole page
+
+* Originally used XML, but now **JSON is the standard**
+* Allows partial page updates (e.g., updating only one section of a page)
+
+---
+
+### XMLHttpRequest (XHR)
+
+```js
+const xhr = new XMLHttpRequest();
+xhr.open("GET", "url");
+xhr.onload = function () {
+  console.log(xhr.response);
+};
+xhr.send();
+```
+
+* Older way to make HTTP requests
+* Can get messy with nested callbacks (callback hell)
+
+---
+
+## Asynchronous Callback
+
+* Execution is **based on when the task completes**, not the order written
+* Often leads to deeply nested code if not managed properly
+  → Known as **callback hell**
+
+---
+
+## Promise
+
+> Provides a cleaner way to handle asynchronous operations
+
+```js
+fetch(url)
+  .then(response => response.json())
+  .then(data => console.log(data))
+  .catch(error => console.error(error));
+```
+
+* `.then()` handles **success**
+* `.catch()` handles **errors**
+
+### Promise States:
+
+* `pending` → waiting
+* `fulfilled` → success
+* `rejected` → failure
+
+---
+
+## Axios
+
+> A popular **Promise-based** HTTP client
+
+### Why use Axios?
+
+* Simpler syntax than XHR
+* Automatically parses JSON
+* Better error handling
+
+### Usage (via CDN):
+
+```html
+<script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+```
+
+### Example:
+
+```js
+axios.get("https://api.example.com/data")
+  .then(response => console.log(response.data))
+  .catch(error => console.error(error));
+```
+
+---
+
+## (Coming Next) — `async` / `await` (Preview)
+
+```js
+async function fetchData() {
+  try {
+    const res = await axios.get("/data");
+    console.log(res.data);
+  } catch (e) {
+    console.error(e);
+  }
+}
+```
+
+* Cleaner syntax than `.then()`
+* Uses `try...catch` for error handling
+* Still based on **Promise**
+
