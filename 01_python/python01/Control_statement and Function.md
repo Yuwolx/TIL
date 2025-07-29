@@ -1,90 +1,171 @@
-# Control Statement
 
-## Conditional statement (if, elif, else)
-### if
-- **expression: some literal line can express one value**
-  - dust =  10 : it is expression
-  - some(1,2) is expression cus can express '3'
 
-- We write in conditional statement for expression
-'''
+# Control Statements
+
+## Conditional Statements (`if`, `elif`, `else`)
+
+### `if`
+
+* **Expression: A literal line that can evaluate to a single value**
+
+  * `dust = 10` → this is an expression
+  * `some(1, 2)` is also an expression because it evaluates to `3`
+
+* We write expressions inside conditional statements:
+
+```python
 if expression:
-  codes
+    codes
 elif expression:
-  codes
-elif expression:
-  codes
-'''
-- if match the condition then finish the codes
+    codes
+else:
+    codes
+```
 
-## Loop (for, while)
-**practice use while alternate for**
+* Once a condition matches, the corresponding code runs and the rest are skipped.
 
-### for
-- Loop in sequence items in order
-- Can write in loop condition that iterable objects
+---
 
-- element = [[a,b],[c,d]]
-- If use inner list then use multile for statement
+## Loops (`for`, `while`)
 
-### while statement
-**We have to write condtion in while statement**
-- When variable cannot match condition then while statement will finish
+> **In practice, use `while` only when necessary—prefer `for` when looping over a sequence.**
 
-#### List comprehension
-['expression' for 'variable' in 'iterable']
-list('expression' for 'variable' in 'iterable')
-- iterable: have indecing sequence
+### `for`
 
-### Loop control
-finish, break ,,,
+* Iterates over each item in a sequence (e.g., list, tuple, string)
+* The loop condition can take any iterable object
 
-# Function
-'''
-def [function_name](varable_1,variable_2): #variables is parameter(매개변수)
-  return v_1 + v_2
-'''
-- If you not write return valuse, then python return none
+Example:
 
-- 일급 객체
-  - Function can assigned variable
-  - Function can convey another function's variable
-  - **Function have similer feature with int**
+```python
+elements = [[a, b], [c, d]]
+```
 
-- **What is the parameter and argument**
-  - When define function use parameter
-  - When use function use 
-    -  Any way, parameter and argument are different
+* If iterating over inner lists, we can use nested `for` statements
+
+### `while`
+
+* You must write a condition in a `while` loop
+* The loop runs until the condition becomes false
+
+---
+
+### List Comprehension
+
+```python
+[expression for variable in iterable]
+list(expression for variable in iterable)
+```
+
+* `iterable`: any object that can be iterated (e.g., list, string, etc.)
+* More efficient and concise way to build a list
+
+---
+
+### Loop Control
+
+* `break`: exit the loop early
+* `continue`: skip to the next iteration
+* `pass`: do nothing (used as a placeholder)
+
+---
+
+# Functions
+
+```python
+def function_name(parameter_1, parameter_2):
+    return parameter_1 + parameter_2
+```
+
+* If you don’t write a `return` statement, Python returns `None` by default.
+
+---
+
+## First-Class Objects (일급 객체)
+
+* Functions can be assigned to variables
+* Functions can be passed as arguments to other functions
+* **Functions are treated like data types (e.g., `int`)**
+
+---
+
+## Parameters vs. Arguments
+
+* **Parameter**: the variable in the function definition
+* **Argument**: the value passed to the function when it's called
+  → They are related but not the same
+
+---
 
 ## Positional Arguments
-- Basically argument type
 
-## Dafault Argument Values
-- When define function can set default argument values
-  - If user do not input argument, then python return dafault argument value
+* The default way to pass arguments, based on their position
 
-## Keyword Argument
-### Arbitrary Argument lists
-'''
-def calculate_sum(*argument):
-  codes
-'''
-- When use do not setting arguments size
-  - couples argument cognitive tuple
+---
 
-### Arbitrart Keyword Argument Lists
+## Default Argument Values
+
+* You can set default values for parameters in the function definition
+  → If the user does not provide a value, the default is used
+
+---
+
+## Keyword Arguments
+
+* You can pass arguments using the `parameter=value` format
+  → This allows you to pass them in any order
+
+---
+
+### Arbitrary Argument Lists
+
+```python
+def calculate_sum(*args):
+    codes
+```
+
+* Use `*args` when you don’t know how many arguments will be passed
+* The arguments are received as a tuple
+
+---
+
+### Arbitrary Keyword Argument Lists
+
+```python
 def print_info(**kwargs):
-- couples argument address dictionary
+    codes
+```
+
+* Use `**kwargs` to receive an arbitrary number of keyword arguments
+* The arguments are received as a dictionary
+
+---
 
 ## Packing & Unpacking
-- Unpacking *[list_name] 
-- Can assigned each value in list to arguments
 
-## Built in function
-len max min sum avg
-- use on for or while statement
+* `*list_name` → unpacks a list or tuple
+* You can assign each value in a list to separate arguments in a function
 
-### Lambda expression
+---
 
-## Styple Guide
-Read in forder
+## Built-in Functions
+
+Common examples: `len()`, `max()`, `min()`, `sum()`
+
+* Often used inside `for` or `while` loops
+
+---
+
+## Lambda Expressions
+
+Anonymous, inline functions:
+
+```python
+lambda x, y: x + y
+```
+
+---
+
+## Style Guide
+
+Refer to the official Python style guide: **PEP 8**
