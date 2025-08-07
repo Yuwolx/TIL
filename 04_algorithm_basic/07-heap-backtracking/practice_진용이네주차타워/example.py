@@ -1,75 +1,64 @@
 import sys
-sys.stdin = open("input.txt")
+sys.stdin = open("sam.txt")
 
 from collections import deque
 
-
-# This function append car_num to parking lot or waited
 def if_in(i):
     global area_num
+    print(f"[입차시도] 차량 {i}번")  # 인덱스 그대로
 
-    # searching space
+    found_space = False
     for s in parking_lot:
         area_num += 1
-        # if there is space
         if s == {101:101}:
-            # there is no wait line
             if len(waited) == 0:
                 parking_lot[area_num] = {i:area_num}
-
-                #reset
+                print(f"  └▶ 주차공간 {area_num}번에 차량 {i}번 입차")
                 i = 101
+                found_space = True
                 break
-            #there is wait line
             else:
+                print(f"  └▶ 대기열 존재: 차량 {i}번 대기행 추가")
                 waited.append(i)
-
-    # there is no available space
-    if i != 101:
+                found_space = True
+                break
+    if not found_space:
+        print(f"  └▶ 빈 공간 없음: 차량 {i}번 대기열 추가")
         waited.append(i)
 
+    print(f"    [주차장 상태] {parking_lot}")
+    print(f"    [대기열 상태] {list(waited)}")
 
-# if there is available area and wait line
 def if_wait():
+    global area_num
     area_num = -1
-    # searching space
     for s in parking_lot:
         area_num += 1
-        # if there is space
         if s == {101:101}:
             break
-    # just make clealy
     priorty = waited.popleft()
     parking_lot[area_num] = {priorty:area_num}
-    #reset
-    i = 101
+    print(f"[대기입차] 대기 중 차량 {priorty}번 → 주차공간 {area_num}번 입차")
+    print(f"    [주차장 상태] {parking_lot}")
+    print(f"    [대기열 상태] {list(waited)}")
 
 def if_out(i):
     global total_fare
     global area_idx
-    # find car's location
+    print(f"[출차시도] 차량 {i}번")
     for dict in parking_lot:
-        # if that area in car
         if i in dict:
-            # store value(area_index)
             area_idx = dict[i]
             break
-    # change to available area
     parking_lot[area_idx] = {101:101}
-
-    # calculate fare
     fee = per_fare[area_idx]
     wei = weight[i]
     f = fee * wei
-
-
     total_fare += f
+    print(f"  └▶ 차량 {i}번 출차, 자리 {area_idx}번 비움")
+    print(f"  └▶ 요금계산: {fee} * {wei} = {f}, 누적 {total_fare}")
     if len(waited) > 0:
         if_wait()
-
-
-
-
 
 T = int(input())
 for tc in range(1,T+1):
@@ -110,23 +99,15 @@ for tc in range(1,T+1):
     # Waiting line
     waited = deque()
 
-    # operation start
     while inout_log:
-        # pop to move other list
         i = inout_log.popleft()
-
-        # if in
         if i > 0:
             i = i - 1
-            # tracking number if area
             area_num = -1
+            print("\n===== 입차 이벤트 =====")
             if_in(i)
-
-        # if log is minus int
         else:
-           i = -i - 1
-           area_num = -1
-           if_out(i)
-
-    print(f"#{tc} {total_fare}")
-
+            i = -i - 1
+            area_num = -1
+            print("\n===== 출차 이벤트 =====")
+            if_out(i)
