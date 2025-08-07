@@ -16,3 +16,16 @@ When definition function for DFS in graph
 - Second, Find candidates connected
     - if there are candidates, use definited function start from new nodes in candidates
     - But didn't checking visitied node before, then occur infinity loof in function
+
+**example**
+def dfs(node):
+if node is None:
+    return
+
+# Step 1: mark the current node as visited
+mark_as_visited(node)
+
+# Step 2: explore all neighbors (or children)
+for neighbor in get_neighbors(node):
+    if not is_visited(neighbor):
+        dfs(neighbor)
