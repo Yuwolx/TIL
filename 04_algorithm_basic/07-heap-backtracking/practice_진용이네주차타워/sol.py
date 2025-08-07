@@ -12,20 +12,20 @@ def if_in(i):
     for s in parking_lot:
         area_num += 1
         # if there is space
-        if s == {101:101}:
+        if s == {-1:-1}:
             # there is no wait line
             if len(waited) == 0:
                 parking_lot[area_num] = {i:area_num}
 
                 #reset
-                i = 101
+                i = -1
                 break
             #there is wait line
             else:
                 waited.append(i)
 
     # there is no available space
-    if i != 101:
+    if i != -1:
         waited.append(i)
 
 
@@ -36,13 +36,12 @@ def if_wait():
     for s in parking_lot:
         area_num += 1
         # if there is space
-        if s == {101:101}:
+        if s == {-1:-1}:
             break
     # just make clealy
     priorty = waited.popleft()
     parking_lot[area_num] = {priorty:area_num}
-    #reset
-    i = 101
+
 
 def if_out(i):
     global total_fare
@@ -55,7 +54,7 @@ def if_out(i):
             area_idx = dict[i]
             break
     # change to available area
-    parking_lot[area_idx] = {101:101}
+    parking_lot[area_idx] = {-1:-1}
 
     # calculate fare
     fee = per_fare[area_idx]
@@ -106,7 +105,7 @@ for tc in range(1,T+1):
     # make parking area list, 0 = empty, 1 = filled
     parking_lot = []
     for _ in range(n):
-        parking_lot.append({101:101})
+        parking_lot.append({-1:-1})
     # Waiting line
     waited = deque()
 
