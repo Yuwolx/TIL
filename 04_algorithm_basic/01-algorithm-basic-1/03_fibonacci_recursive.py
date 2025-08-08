@@ -1,12 +1,16 @@
-def fibonacci(n):
-    # Basis Rule
+def fibonacci(n, depth=0):
+    indent = "  " * depth  # 호출 깊이만큼 들여쓰기
+    print(f"{indent}fibonacci({n}) 호출")
     if n == 0:
+        print(f"{indent}  반환: 0")
         return 0
     elif n == 1:
+        print(f"{indent}  반환: 1")
         return 1
-    # Inductive Rule
     else:
-        return fibonacci(n-1) + fibonacci(n-2)
+        a = fibonacci(n-1, depth+1)
+        b = fibonacci(n-2, depth+1)
+        print(f"{indent}  반환: {a} + {b} = {a+b}")
+        return a + b
 
-# 사용 예시
-print(fibonacci(10)) # 55를 출력합니다. (피보나치 수열: 0, 1, 1, 2, 3, 5, 8, 13, 21, 34, 55)
+print("최종 결과:", fibonacci(4))

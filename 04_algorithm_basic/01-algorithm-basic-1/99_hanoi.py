@@ -24,5 +24,5 @@ def hanoi(n, source, auxiliary, target):
     
 # --- 실행 예시 ---
 # 3개의 원반을 'A' 기둥에서 'C' 기둥으로 옮기기 ('B' 기둥을 보조로 사용)
-number_of_disks = 3
+number_of_disks = 2
 hanoi(number_of_disks, 'A', 'B', 'C')
