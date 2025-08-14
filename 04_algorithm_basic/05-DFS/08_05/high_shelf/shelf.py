@@ -22,22 +22,41 @@ sys.stdin = open('input.txt')
 # then, now S is new optimal value
 # It is branch cutting 
 
-# I need definition function and reculsive functoin to solve thish
+# I need definition function and reculsive function to solve this
 # order in solving way
 # 1. make comb ordinary
 # 2. When S is higher then B, stop
 # 3. save that gap
 # 3. If gap is smaller than last stored value then store gap in optimal value
 
-def optimal_comb(N,B,staffs):
+# def optimal_comb(N,B,staffs):
 
 
 T = int(input())
+
+def comb(idx, evaluation):
+    global min_s
+    if evaluation >= B:
+        min_s = min(evaluation,min_s)
+        return
+    
+    if idx == N:
+        return
+    
+    comb(idx+1, evaluation + staffs[idx])
+    comb(idx + 1, evaluation)
 
 for tc in range(1,T+1):
     # N is number of staff
     # B is height of book shelf
     N, B = map(int, input().split())
-    
     # create staff's height list
     staffs = list(map(int, input().split()))
+
+    # optimal value
+    min_s = 200000
+
+
+
+    comb(0,0)
+    print(f'#{tc} {min_s-B}')
