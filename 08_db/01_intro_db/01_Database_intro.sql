@@ -56,7 +56,7 @@ RENAME COLUMN Address TO PostCode;
 ALTER TABLE examples
 RENAME TO new_examples;
 
-
+USE db_intro;
 -- 테이블 삭제하기
 DROP TABLE new_examples;
 
