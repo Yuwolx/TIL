@@ -1,5 +1,17 @@
-a = [1,2]
+n,m = map(int,input().split())
+print(f'n,m: {n,m}')
 
-a = tuple(a)
+numbers = list(map(int, input().split()))
+numbers.sort()
+print(f'numbers: {numbers}')
 
-print(a)
+lists = []
+each = []
+
+# def make_list(numbers,m):
+for i in numbers:
+    each.append(i)
+    if len(each) == m:
+        lists.append(each)
+        each = []
+
